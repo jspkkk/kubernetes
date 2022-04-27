@@ -23,6 +23,14 @@ This documentation guides you in setting up a cluster with one master node and t
    ### `On Master and Worker:`
 1. Perform all the commands as root user unless otherwise specified
  
+ If Centos machine is not updating with package please follow below commands:
+ $ sudo su -
+ # cd /etc/yum.repos.d/
+ # sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+ # sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+ # yum update -y
+ 
+ 
    Install, Enable and start docker service.
    Use the Docker repository to install docker.
    > If you use docker from CentOS OS repository, the docker version might be old to work with Kubernetes v1.13.0 and above
